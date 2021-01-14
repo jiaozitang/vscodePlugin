@@ -1,0 +1,20 @@
+{
+  "extends": "stylelint-config-standard",
+  "plugins": [
+		"stylelint-order",
+		"stylelint-scss"
+	],
+	"rules": {
+		"no-extra-semicolons": true,
+		"color-hex-case": "lower",
+		"color-hex-length": "short",
+		"string-quotes": "single",
+		"unit-case": null,
+		"unit-whitelist": ["em", "rem", "%", "s", "px", "deg", "vh"],
+		"function-name-case": "lower",
+		"at-rule-no-unknown": null,
+		"scss/at-rule-no-unknown": true,
+		"no-descending-specificity": null
+	},
+	"ignoreFiles": ["**/*.js","./src/assets/css/reset.scss","dist/**","./src/assets/css/editor/quill_custom.scss","./src/assets/css/react-datepicker.scss", "./src/assets/css/editor/editor.scss", "./src/assets/css/editor/jelly_markdown.scss","./src/component/browser_modal/browser_modal.scss", "./src/lib/swiper/swiper-bundle.css", "./src/lib/swiper/‘pagination.scss"]
+}
