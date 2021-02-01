@@ -1,7 +1,7 @@
-// The module 'vscode' contains the VS Code extensibility API
-// Import the module and reference it with the alias vscode in your code below
+// @ts-ignore
 import * as vscode from 'vscode';
-import { copyFile } from '../script/handleFile'
+// @ts-ignore
+import { copyFile } from '../script/handleFile';
 
 export function activate(context: vscode.ExtensionContext) {
 	const disposable = vscode.commands.registerCommand('extension.formatProject', async () => {
@@ -9,7 +9,7 @@ export function activate(context: vscode.ExtensionContext) {
 				value: '',
 				valueSelection: [2, 4],
 				placeHolder: '请输入项目根目录',
-				validateInput: text => {
+				validateInput: (text: string) => {
 					vscode.window.showInformationMessage(`Validating: ${text}`);
 					return text === '123' ? 'Not 123!' : null;
 				}
