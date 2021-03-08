@@ -2,7 +2,8 @@
 v1.0
 
 # 使用方法
-点击右键，点击formatProject，或者快捷键cmd+f11
+- 打开项目任意文件，编辑器焦点在文本中
+- 点击右键，点击formatProject，或者快捷键cmd+f11
 
 # 注意事项
 ## formatProject前请先 `git stash` 保存项目本地修改，以防丢失

@@ -26,7 +26,8 @@
 			"editor/context": [
 				{
 					"command": "extension.formatProject",
-					"group": "4_Starling"
+					"group": "4_Starling",
+					"when": "editorTextFocus"
 				}
 			]
 		},
@@ -34,7 +35,8 @@
 			{
 				"command": "extension.formatProject",
 				"key": "ctrl+f11",
-				"mac": "cmd+f11"
+				"mac": "cmd+f11",
+				"when": "editorTextFocus"
 			}
 		]
 	},
@@ -62,6 +64,9 @@
 		"lint-staged": "^10.5.3",
 		"prettier": "^2.2.1",
 		"stylelint": "^13.8.0",
+		"stylelint-config-standard": "^21.0.0",
+		"stylelint-order": "^4.1.0",
+		"stylelint-scss": "^3.19.0",
 		"typescript": "^4.0.2"
 	},
 	"dependencies": {
