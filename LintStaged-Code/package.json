@@ -41,7 +41,7 @@
 		]
 	},
 	"scripts": {
-		"vscode:prepublish": "npm run compile",
+		"vscode:prepublish": "tsc -p ./",
 		"compile": "tsc -p ./",
 		"lint": "eslint . --ext .ts,.tsx",
 		"watch": "tsc -watch -p ./"
@@ -49,13 +49,11 @@
 	"devDependencies": {
 		"@commitlint/cli": "^11.0.0",
 		"@commitlint/config-conventional": "^11.0.0",
-		"@types/braces": "^3.0.0",
-		"@types/debug": "^4.1.5",
-		"@types/fs-extra": "^9.0.6",
-		"@types/mkdirp": "^1.0.1",
-		"@types/node": "^12.20.4",
-		"@types/q": "^1.5.4",
-		"@types/vscode": "^1.34.0",
+		"@types/expect.js": "^0.3.29",
+		"@types/mocha": "^2.2.41",
+		"@types/mockery": "^1.4.29",
+		"@types/node": "^7.0.18",
+		"@types/rimraf": "^0.0.28",
 		"@typescript-eslint/eslint-plugin": "^3.0.2",
 		"@typescript-eslint/parser": "^3.0.2",
 		"eslint": "^7.17.0",
@@ -67,9 +65,13 @@
 		"stylelint-config-standard": "^21.0.0",
 		"stylelint-order": "^4.1.0",
 		"stylelint-scss": "^3.19.0",
-		"typescript": "^4.0.2"
+		"typescript": "^2.3.2",
+		"vscode": "^1.1.0"
 	},
 	"dependencies": {
+		"@types/debug": "^0.0.29",
+		"@types/mkdirp": "^0.3.29",
+		"@types/q": "^1.0.0",
 		"braces": "^3.0.2",
 		"debug": "^4.3.1",
 		"fs": "0.0.1-security",
