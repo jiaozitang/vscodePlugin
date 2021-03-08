@@ -16,8 +16,8 @@ export function activate(context: vscode.ExtensionContext) {
 		const terminal = window.createTerminal('LintStageCodeTerminal');
 		terminal.show();
 		terminal.sendText(`cd ${root}`); // 默认一个非法路径
-		await terminal.sendText("npm install lint-staged prettier eslint@7 @typescript-eslint/parser @typescript-eslint/eslint-plugin stylelint stylelint-config-standard stylelint-order stylelint-scss husky @commitlint/cli @commitlint/config-conventional eslint-config-prettier eslint-config-standard eslint-plugin-import eslint-plugin-node eslint-plugin-promise eslint-plugin-react eslint-plugin-standard eslint-plugin-typescript --save-dev --registry=https://r.npm.taobao.org");
-		await terminal.sendText("npm install typescript --save --registry=https://r.npm.taobao.org");
+		await terminal.sendText("cnpm install lint-staged prettier eslint@7 @typescript-eslint/parser @typescript-eslint/eslint-plugin stylelint stylelint-config-standard stylelint-order stylelint-scss husky @commitlint/cli @commitlint/config-conventional eslint-config-prettier eslint-config-standard eslint-plugin-import eslint-plugin-node eslint-plugin-promise eslint-plugin-react eslint-plugin-standard eslint-plugin-typescript --save-dev");
+		await terminal.sendText("cnpm install typescript --save");
 
 		// 2.复制配置文件
 		const terminalFilePath = `${extensionPath}/script/config`;
