@@ -1,32 +1,28 @@
 // @ts-ignore
-import * as vscode from 'vscode';
+import * as vscode  from 'vscode'
+
 // @ts-ignore
 import { copyFile } from '../script/handleFile';
+import { FileController } from './file-controller';
+
+const { commands, window } = vscode
 
 export function activate(context: vscode.ExtensionContext) {
-	const disposable = vscode.commands.registerCommand('extension.formatProject', async () => {
-		const projectPath = await vscode.window.showInputBox({
-				value: '',
-				valueSelection: [2, 4],
-				placeHolder: '请输入项目根目录',
-				validateInput: (text: string) => {
-					vscode.window.showInformationMessage(`Validating: ${text}`);
-					return text === '123' ? 'Not 123!' : null;
-				}
-			});
-		vscode.window.showInformationMessage(`Got: ${projectPath}`);
-
+	const disposable = commands.registerCommand('extension.formatProject', async () => {
 		const { extensionPath } = arguments[0];
+		const File = new FileController().readSettings();
+		const root = await File.determineRoot();
 		// 1.安装依赖
-		const terminal = vscode.window.createTerminal('LintStageCodeTerminal');
+		const terminal = window.createTerminal('LintStageCodeTerminal');
 		terminal.show();
-		terminal.sendText(`cd ${projectPath}`);
-		terminal.sendText("npm install lint-staged prettier eslint stylelint husky @commitlint/cli @commitlint/config-conventional --save-dev");
+		terminal.sendText(`cd ${root}`); // 默认一个非法路径
+		await terminal.sendText("npm install lint-staged prettier eslint stylelint husky @commitlint/cli @commitlint/config-conventional eslint-config-prettier eslint-config-standard eslint-plugin-import eslint-plugin-node eslint-plugin-promise eslint-plugin-react eslint-plugin-standard eslint-plugin-typescript --save-dev");
 
 		// 2.复制配置文件
 		const terminalFilePath = `${extensionPath}/script/config`;
-		copyFile(terminalFilePath, projectPath);
-		vscode.window.showInformationMessage('formatProject Success!');
+		copyFile(terminalFilePath, root);
+		window.showInformationMessage('formatProject Success!');
+		window.showInformationMessage(root);
 	});
 
 	context.subscriptions.push(disposable);
